@@ -16,6 +16,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  var windowsToShow = List<Window>.empty();
+  var ticks = 0;
+
   @override
   void initState() {
     super.initState();
@@ -24,10 +27,31 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _init() async {
-     SystemTrayPlatform.instance.initialize();
+    SystemTrayPlatform.instance.initialize();
+
+    Timer.periodic(const Duration(milliseconds: 20), (timer) async {
+      final activeApps = await SystemTrayPlatform.instance.getActiveApps();
+
+      print(activeApps.length);
+      final wl = activeApps.map((w) => Window(w.name, w.isActive, 0)).toList();
+
+      if (windowsToShow.isEmpty) {
+        windowsToShow = wl;
+      }
+
+      for (var element in wl) {
+        if (element.isActive) {
+          windowsToShow
+              .firstWhere((window) => window.name == element.name)
+              .activityForce++;
+        }
+      }
+      setState(() => ticks++);
+    });
 
     await SystemTrayPlatform.instance
         .setIcon(iconPath: '/Users/jackstefansky/Downloads/test.png');
+
     await SystemTrayPlatform.instance.setMenu(trayActions: [
       TrayAction(
         actionType: TrayActionType.CustomEvent,
@@ -47,7 +71,7 @@ class _MyAppState extends State<MyApp> {
         label: 'Test',
         name: 'test2',
       ),
-    ]); 
+    ]);
   }
 
   @override
@@ -57,8 +81,44 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: const Center(child: Text('Test')),
+        body: ListView.builder(
+          itemCount: windowsToShow.length,
+          itemBuilder: (context, index) => Stack(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    flex: windowsToShow[index].activityForce,
+                    child: Container(
+                      height: 30.0,
+                      color: Colors.red,
+                    ),
+                  ),
+                  Expanded(
+                    flex: ticks - windowsToShow[index].activityForce,
+                    child: Container(
+                      height: 30,
+                    ),
+                  ),
+                ],
+              ),
+              Text(windowsToShow[index].name),
+            ],
+          ),
+        ),
       ),
     );
   }
+}
+
+class Window {
+  Window(
+    this.name,
+    this.isActive,
+    this.activityForce,
+  );
+
+  String name;
+  bool isActive;
+  int activityForce;
 }

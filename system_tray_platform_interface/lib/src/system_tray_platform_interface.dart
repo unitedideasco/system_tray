@@ -52,5 +52,8 @@ abstract class SystemTrayPlatform extends PlatformInterface {
     throw UnimplementedError('setIcon() has not been implemented.');
   }
 
+  Future<List<SystemWindow>> getActiveApps() {
+    throw UnimplementedError('getActiveApps() has not been implemented.');
+  }
 
 }

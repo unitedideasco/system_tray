@@ -4,3 +4,4 @@
 
 export 'tray_action.dart';
 export 'tray_action_type.dart';
+export 'system_window.dart';

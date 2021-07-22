@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/services.dart';
@@ -73,5 +74,24 @@ class MethodChannelSystemTray extends SystemTrayPlatform {
         'trayActions': trayActionsJsonList,
       },
     );
+  }
+
+  @override
+  Future<List<SystemWindow>> getActiveApps() async {
+    assert(_initialized);
+
+    final activeAppsJson = await _channel.invokeMethod<String>(
+      'getActiveApps',
+      <String, Object>{},
+    );
+
+    final activeWindowsMap = jsonDecode(activeAppsJson!) as List;
+
+    return activeWindowsMap
+        .map((windowMap) => SystemWindow(
+              name: windowMap['name'],
+              isActive: windowMap['isActive'],
+            ))
+        .toList();
   }
 }
