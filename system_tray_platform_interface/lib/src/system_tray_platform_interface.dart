@@ -37,7 +37,7 @@ abstract class SystemTrayPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  /// Initializez system tray plugin. Completes to [true] if the sttting or updating was successful.
+  /// Initializes system tray plugin. Completes to [true] if the sttting or updating was successful.
   void initialize() {
     throw UnimplementedError('initialize() has not been implemented.');
   }
@@ -52,6 +52,7 @@ abstract class SystemTrayPlatform extends PlatformInterface {
     throw UnimplementedError('setIcon() has not been implemented.');
   }
 
+  /// Returns list of [SystemWindow]
   Future<List<SystemWindow>> getActiveApps() {
     throw UnimplementedError('getActiveApps() has not been implemented.');
   }
