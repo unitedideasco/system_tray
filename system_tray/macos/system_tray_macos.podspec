@@ -12,7 +12,7 @@ Provides functionalities of system tray
   s.homepage         = 'http://unitedideas.co'
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'United Ideas' => 'jakub.stefaniak@unitedideas.pl' }
-  s.source           = { :http => 'https://github.com/unitedideasco/system_tray' }
+  s.source           = { :http => 'https://github.com/unitedideasco/system_tray/tree/main/system_tray' }
   s.source_files     = 'Classes/**/*'
   s.dependency 'FlutterMacOS'
 
