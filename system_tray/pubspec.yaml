@@ -1,27 +1,30 @@
 name: system_tray
 description: The flutter package that allows user to create system tray icons on MacOS, Windows and Linux
-repository: https://github.com/unitedideasco/system_tray
+repository: https://github.com/unitedideasco/system_tray/
 issue_tracker: https://github.com/unitedideasco/system_tray/issues?q=is%3Aissue+is%3Aopen+label%3A%22p%3A+system_tray%22
-
 version: 0.0.1
-homepage:
+
+homepage: https://unitedideas.co
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.20.0"
 
+flutter:
+  plugin:
+    platforms:
+      macos:
+        default_package: system_tray_macos
+
 dependencies:
   flutter:
     sdk: flutter
-  system_tray_platform_interface:
+  system_tray_macos:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
+  system_tray_platform_interface:
 
-flutter:
-  plugin:
-    platforms:
-      macos:
-        pluginClass: SystemTrayPlugin
+

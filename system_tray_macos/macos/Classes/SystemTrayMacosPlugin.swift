@@ -1,7 +1,7 @@
 import Cocoa
 import FlutterMacOS
 
-public class SystemTrayMacosPlugin: NSObject, FlutterPlugin {
+public class SystemTrayPlugin: NSObject, FlutterPlugin {
     var statusBarItem : NSStatusItem!
     
     private let channel: FlutterMethodChannel
@@ -20,7 +20,7 @@ public class SystemTrayMacosPlugin: NSObject, FlutterPlugin {
             name: "unitedideas.co/system_tray",
             binaryMessenger: registrar.messenger
         )
-        let instance = SystemTrayMacosPlugin(channel: channel, registrar: registrar)
+        let instance = SystemTrayPlugin(channel: channel, registrar: registrar)
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
 
