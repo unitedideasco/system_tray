@@ -12,7 +12,7 @@ Provides functionalities of system tray
   s.homepage         = 'http://unitedideas.co'
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'United Ideas' => 'jakub.stefaniak@unitedideas.pl' }
-  s.source           = { :http => 'https://github.com/unitedideasco/system_tray/tree/main/system_tray' }
+  s.source           = { :http => 'https://github.com/unitedideasco/system_tray/tree/main/system_tray_macos' }
   s.source_files     = 'Classes/**/*'
   s.dependency 'FlutterMacOS'
 
@@ -20,3 +20,5 @@ Provides functionalities of system tray
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   s.swift_version = '5.0'
 end
+
+

@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -22,14 +23,13 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-
     _init();
   }
 
   void _init() async {
     SystemTrayPlatform.instance.initialize();
 
-    Timer.periodic(const Duration(milliseconds: 20), (timer) async {
+    Timer.periodic(const Duration(milliseconds: 1000), (timer) async {
       final activeApps = await SystemTrayPlatform.instance.getActiveApps();
 
       print(activeApps.length);

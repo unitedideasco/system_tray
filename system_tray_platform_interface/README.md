@@ -9,10 +9,10 @@ same interface.
 # Usage
 
 To implement a new platform-specific implementation of `system_tray`, extend
-[`UrlLauncherPlatform`][2] with an implementation that performs the
+[`SystemTrayPlatform`][2] with an implementation that performs the
 platform-specific behavior, and when you register your plugin, set the default
-`UrlLauncherPlatform` by calling
-`UrlLauncherPlatform.instance = MyPlatformUrlLauncher()`.
+`SystemTrayPlatform` by calling
+`SystemTrayPlatform.instance = MyPlatformSystemTray()`.
 
 # Note on breaking changes
 

@@ -1,9 +1,11 @@
 name: system_tray_platform_interface
-description: A common platform interface for the system_tray_platform_interface plugin.
+description: The flutter package that allows user to create system tray icons on MacOS, Windows and Linux
+repository: https://github.com/unitedideasco/system_tray_platform_interface
+issue_tracker: https://github.com/unitedideasco/system_tray_platform_interface/issues?q=is%3Aissue+is%3Aopen+label%3A%22p%3A+system_tray_platform_interface%22
 
 # NOTE: We strongly prefer non-breaking changes, even at the expense of a
 # less-clean API. See https://flutter.dev/go/platform-interface-breaking-changes
-version: 2.0.4
+version: 1.0.0
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

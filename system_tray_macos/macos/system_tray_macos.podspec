@@ -1,18 +1,18 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint system_tray_macos.podspec` to validate before publishing.
+# Run `pod lib lint system_tray.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
   s.name             = 'system_tray_macos'
   s.version          = '0.0.1'
-  s.summary          = 'A new flutter plugin project.'
+  s.summary          = 'macOS implementation of the system_tray plugin.'
   s.description      = <<-DESC
-A new flutter plugin project.
+Provides functionalities of system tray
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'http://unitedideas.co'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
-  s.source           = { :path => '.' }
+  s.author           = { 'United Ideas' => 'jakub.stefaniak@unitedideas.pl' }
+  s.source           = { :http => 'https://github.com/unitedideasco/system_tray/tree/main/system_tray_macos' }
   s.source_files     = 'Classes/**/*'
   s.dependency 'FlutterMacOS'
 
@@ -20,3 +20,5 @@ A new flutter plugin project.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   s.swift_version = '5.0'
 end
+ 
+
