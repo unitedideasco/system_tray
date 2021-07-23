@@ -25,7 +25,7 @@ dependencies:
   #
   # In the future, this plugin's platform code should be able to reference the
   # interface's platform code. (Android already supports this).
-  system_tray_platform_interface: ^2.0.0
+  system_tray_platform_interface:
 
 dev_dependencies:
   flutter_test:
